@@ -1,0 +1,211 @@
+:root {
+    --primary: #ffffff;
+    --secundary: #212429;
+}
+
+body {
+    color: var(--secundary);
+    font-size: 14px;
+    font-family: "Montserrat";
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 8px;
+    padding-bottom: 16px;
+    gap: 16px;
+    width: 100%;
+    border-bottom: 1px solid var(--secundary);
+}
+
+.opciones {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.opc:hover {
+    animation: boton-animado;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+@keyframes boton-animado {
+    100% {
+        background-color: var(--secundary);
+        color: var(--primary);
+        font-weight: bold;
+    }    
+}
+
+.iconos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+hr {
+    width: 100%;
+    background-color: var(--secundary);
+    height: 1px;
+}
+
+.nuevas-colecciones {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.new-collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 16px;
+    padding: 16px;
+    gap: 16px;
+}
+
+.imgs {
+    border-radius: 5%;
+}
+
+.imgs:hover {
+    animation: img-animado;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+@keyframes img-animado {
+    0% {
+        border-radius: 5%;
+    }
+    30% {
+        border-radius: 25%;
+    }
+    65% {
+        border-radius: 45%;
+    }
+    100% {
+        border-radius: 65%;
+    }
+}
+
+.informacion {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 35%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--secundary);
+    color: var(--primary);
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 8px;
+}
+
+p {
+    margin: 8px;
+}
+
+.img-footer {
+    background-color: var(--primary);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+@media (max-width: 920px) {
+    body {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .opciones {
+        display: none;
+    }
+    .iconos {
+        display: none;
+    }
+    .nuevas-colecciones {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+    .container1 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: space-between;
+        align-items: center;
+    }
+    .informacion {
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+    .footer {
+        border-bottom: 3px solid var(--primary);
+        align-items: left;
+    }
+    p {
+        font-weight: bold;
+    }
+}
+
+
+
+
+/* -Me falta revisar como meter el position:fixed en la barra de navegación
+ -Y que me explique a que se refiere al decir que definamos un doc .css para
+ ser importado en el documetno html (entiendo que se refiere a que lo hagamos
+ en hojas independeitnes y lo enlacemos).
+ -Añadir barras horizontales en el footer cuando reducimos a 920px y alinear
+ a la izquierda
+ -Reducir el tamaño de la barra de navegación que solo aparezca la galleta 
+ cuando reducimos a 920px
+ */
