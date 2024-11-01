@@ -137,9 +137,12 @@ footer {
 
 .footer {
     display: flex;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     padding: 8px;
+    background-color: var(--secundary);
+    color: var(--primary);
 }
 
 p {
@@ -185,27 +188,13 @@ p {
     }
     footer {
         flex-direction: column;
-        justify-content: center;
+        align-items: flex-start;
         text-align: left;
     }
     .footer {
         border-bottom: 3px solid var(--primary);
-        align-items: left;
     }
     p {
         font-weight: bold;
     }
 }
-
-
-
-
-/* -Me falta revisar como meter el position:fixed en la barra de navegación
- -Y que me explique a que se refiere al decir que definamos un doc .css para
- ser importado en el documetno html (entiendo que se refiere a que lo hagamos
- en hojas independeitnes y lo enlacemos).
- -Añadir barras horizontales en el footer cuando reducimos a 920px y alinear
- a la izquierda
- -Reducir el tamaño de la barra de navegación que solo aparezca la galleta 
- cuando reducimos a 920px
- */
