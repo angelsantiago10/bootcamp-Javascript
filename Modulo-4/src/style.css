@@ -1,0 +1,20 @@
+#Display {
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+#Reset {
+  cursor: progress;
+}
+
+#botonTurno {
+  font-size: 15px;
+  padding: 5px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
