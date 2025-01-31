@@ -12,34 +12,44 @@ function ActualizarTurno() {
     Display.innerHTML = `Turno: ${turnoFormateado}`;
 }
 
-BotonSiguiente?.addEventListener("click", () => {
-    turnoActual = turnoActual + 1;
-    ActualizarTurno();
-});
-
-BotonAnterior?.addEventListener("click", () => {
-    if (turnoActual > 0) {
-        turnoActual = turnoActual - 1;
-        ActualizarTurno();
-    }
-});
-
-Reset?.addEventListener("click", () => {
-    turnoActual = 0;
-    ActualizarTurno();
-});
-
-botonTurno.addEventListener("click", () => {
-    const nuevoTurno = parseInt(cuadroTurno.value);
-
-    if (!isNaN(nuevoTurno) &&
-        nuevoTurno >= 0) {
-        turnoActual = nuevoTurno;
-        ActualizarTurno();
-        } else {
-            alert("Por favor, ingrese un valor válido");
+if (BotonSiguiente instanceof HTMLButtonElement) {
+    BotonSiguiente.addEventListener("click", () => {
+        if (turnoActual >= 0) {
+            turnoActual = turnoActual + 1;
+            ActualizarTurno()
         }
-        cuadroTurno.value = '';
-});
+    });
+}
+
+if (BotonAnterior instanceof HTMLButtonElement) {
+    BotonAnterior.addEventListener("click", () => {
+        if (turnoActual > 0) {
+            turnoActual = turnoActual - 1;
+            ActualizarTurno();
+        }
+    });
+}
+
+if (Reset instanceof HTMLButtonElement) {
+    Reset.addEventListener("click", () => {
+        turnoActual = 0;
+        ActualizarTurno();
+    });
+}
+
+if (botonTurno instanceof HTMLButtonElement) {
+    botonTurno.addEventListener("click", () => {
+        const nuevoTurno = parseInt(cuadroTurno.value);
+    
+        if (!isNaN(nuevoTurno) &&
+            nuevoTurno >= 0) {
+            turnoActual = nuevoTurno;
+            ActualizarTurno();
+            } else {
+                alert("Por favor, ingrese un valor válido");
+            }
+            cuadroTurno.value = '';
+    });
+}
 
 ActualizarTurno();
