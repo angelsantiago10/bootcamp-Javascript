@@ -1,15 +1,19 @@
 let turnoActual: number = 0;
 
-const Display = document.getElementById("Display") as HTMLDivElement;
+
 const BotonAnterior = document.getElementById("BotonAnterior");
 const BotonSiguiente = document.getElementById("BotonSiguiente");
 const Reset = document.getElementById("Reset");
-const cuadroTurno = document.getElementById("cuadroTurno") as HTMLInputElement;
+const cuadroTurno = document.getElementById("cuadroTurno");
 const botonTurno = document.getElementById("botonTurno");
 
+
 function ActualizarTurno() {
+    const Display = document.getElementById("Display");
+    if (Display && Display instanceof HTMLDivElement) {
     const turnoFormateado = turnoActual.toString().padStart(2, `0`);
     Display.innerHTML = `Turno: ${turnoFormateado}`;
+    }
 }
 
 if (BotonSiguiente instanceof HTMLButtonElement) {
@@ -39,6 +43,7 @@ if (Reset instanceof HTMLButtonElement) {
 
 if (botonTurno instanceof HTMLButtonElement) {
     botonTurno.addEventListener("click", () => {
+        if (cuadroTurno instanceof HTMLInputElement) {
         const nuevoTurno = parseInt(cuadroTurno.value);
     
         if (!isNaN(nuevoTurno) &&
@@ -49,6 +54,7 @@ if (botonTurno instanceof HTMLButtonElement) {
                 alert("Por favor, ingrese un valor válido");
             }
             cuadroTurno.value = '';
+        }
     });
 }
 
