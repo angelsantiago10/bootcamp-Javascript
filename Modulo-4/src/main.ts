@@ -1,6 +1,5 @@
 let turnoActual: number = 0;
 
-
 const BotonAnterior = document.getElementById("BotonAnterior");
 const BotonSiguiente = document.getElementById("BotonSiguiente");
 const Reset = document.getElementById("Reset");
@@ -16,34 +15,27 @@ function ActualizarTurno() {
     }
 }
 
-if (BotonSiguiente instanceof HTMLButtonElement) {
-    BotonSiguiente.addEventListener("click", () => {
-        if (turnoActual >= 0) {
-            turnoActual = turnoActual + 1;
-            ActualizarTurno()
-        }
-    });
+const siguiente = () => {
+    if (turnoActual >= 0) {
+        turnoActual = turnoActual + 1;
+        ActualizarTurno()
+    }
 }
 
-if (BotonAnterior instanceof HTMLButtonElement) {
-    BotonAnterior.addEventListener("click", () => {
-        if (turnoActual > 0) {
-            turnoActual = turnoActual - 1;
-            ActualizarTurno();
-        }
-    });
-}
-
-if (Reset instanceof HTMLButtonElement) {
-    Reset.addEventListener("click", () => {
-        turnoActual = 0;
+const anterior = () => {
+    if (turnoActual > 0) {
+        turnoActual = turnoActual - 1;
         ActualizarTurno();
-    });
+    }
 }
 
-if (botonTurno instanceof HTMLButtonElement) {
-    botonTurno.addEventListener("click", () => {
-        if (cuadroTurno instanceof HTMLInputElement) {
+const reset = () => {
+    turnoActual = 0;
+    ActualizarTurno();
+}
+
+const turno = () => {
+    if (cuadroTurno instanceof HTMLInputElement) {
         const nuevoTurno = parseInt(cuadroTurno.value);
     
         if (!isNaN(nuevoTurno) &&
@@ -55,7 +47,24 @@ if (botonTurno instanceof HTMLButtonElement) {
             }
             cuadroTurno.value = '';
         }
-    });
 }
 
-ActualizarTurno();
+document.addEventListener('DOMContentLoaded', () => {
+    if (BotonSiguiente instanceof HTMLButtonElement) {
+        BotonSiguiente.addEventListener("click", siguiente);
+    }
+
+    if (BotonAnterior instanceof HTMLButtonElement) {
+        BotonAnterior.addEventListener("click", anterior);
+    }
+
+    if (Reset instanceof HTMLButtonElement) {
+        Reset.addEventListener("click", reset);
+    }
+
+    if (botonTurno instanceof HTMLButtonElement) {
+        botonTurno.addEventListener("click", turno);
+    }
+
+    ActualizarTurno();
+})
